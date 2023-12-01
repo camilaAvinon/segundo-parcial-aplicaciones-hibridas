@@ -48,8 +48,8 @@ app.post('/blog/authentication', userController.auth);
 //Rutas usuarios
 app.get('/blog/users', userController.call);
 app.get('/blog/users/:userId', userController.callById);
+app.post('/blog/users', userController.create);
 // Rutas protegidas de usuarios
-app.post('/blog/users', validatingToken, userController.create);
 app.put('/blog/users/:userId', validatingToken, userController.update);
 app.delete('/blog/users/:userId', validatingToken, userController.delete);
 
