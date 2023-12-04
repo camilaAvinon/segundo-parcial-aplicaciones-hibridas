@@ -1,11 +1,61 @@
 'use client';
 
 import { Button, Checkbox, Label, Modal, TextInput, Select, Textarea } from 'flowbite-react';
-import { useRef, useState, React} from 'react';
+import React, { useRef, useState, useEffect} from 'react';
 
-function Component() {
-  const [openModal, setOpenModal] = useState(false);
+function Modal_post() {
+  const [openModal, setOpenModal] = useState(false)
+  const [categories, setCategories] = useState(null)
+  const [title, setTitle] = useState()
+  const [body, setBody] = useState()
+  const [category, serCategory] = useState()
 
+  const handlerSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:2026/blog/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({title, body, category})
+      })
+      if (response.ok){
+        const data = await response.json();
+        const token = data.token
+        //como es el tema del token?
+        const userName = data.name
+        localStorage.setItem("token", token)
+        localStorage.setItem("userName", userName)
+        login({userNanme : userName})
+        //navigate('/panel)        
+      }
+    } catch(e){
+      console.error(e);
+    }
+  }
+
+  useEffect(() => {
+    callingCategories();
+  }, []);
+  
+  const callingCategories = async () => {
+    try {
+      const response = await fetch ("http://localhost:2026/blog/categories")
+      if (response.ok){
+        const data = await response.json()
+        setCategories(data.data)
+      } else {
+        console.error(response.status,response.statusText);
+      }
+    } catch (e){
+      console.error(e)
+    }
+  }
+
+  if (!categories){
+    return <p>Obteniendo datos del servidor...</p>
+  }
+  
   return (
     <>
       <Button onClick={() => setOpenModal(true)} className="fixed bottom-0 left-[96%] transform -translate-x-1/2 m-2 p-2  rounded-full">
@@ -35,12 +85,13 @@ function Component() {
                 <Label htmlFor="body" value="Cuerpo del posteo" />
               </div>
               <Select defaultValue="global">
-                <option value="global">Global</option>
-                <option value="entretenimiento">Entretenimiento</option>
-                <option value="deportes">Deportes</option>
+                {
+                  categories.map((currentCategory) => (
+                    <option key={currentCategory._id} value={currentCategory._id}>{currentCategory.name}</option>
+                  ))
+                }
           </Select>
             </div>
-
             <div className="w-full">
               <Button>Crear posteo</Button>
             </div>
@@ -51,4 +102,4 @@ function Component() {
   );
 }
 
-export default Component
+export default Modal_post
