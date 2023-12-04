@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import login_view from './views/login_view.jsx'
+import Login_view from './views/Login_view.jsx'
 import './index.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <login_view/>,
+    element: <Login_view/>,
   }
 ]);
 
