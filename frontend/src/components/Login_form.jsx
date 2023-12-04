@@ -16,10 +16,10 @@ const Login_form = () => {
       </div>
       <TextInput id="password1" type="password" required />
     </div>
-    <div className="flex items-center gap-2">
+    {/* <div className="flex items-center gap-2">
       <Checkbox id="remember" />
       <Label htmlFor="remember">Remember me</Label>
-    </div>
+    </div> */}
     <Button type="submit">Submit</Button>
   </form>
 );

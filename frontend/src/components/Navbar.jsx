@@ -34,7 +34,7 @@ const Nav = () => {
           Home
         </Navbar.Link>
         <Navbar.Link href="#" className='text-xl text-tertiary'>About</Navbar.Link>
-        <Navbar.Link href="#" className='text-xl text-tertiary'>Services</Navbar.Link>
+        <Navbar.Link href="login" className='text-xl text-tertiary'>Iniciar sesión</Navbar.Link>
         <Navbar.Link href="#" className='text-xl text-tertiary'>Pricing</Navbar.Link>
         <Navbar.Link href="#" className='text-xl text-tertiary'>Contact</Navbar.Link>
       </Navbar.Collapse>
