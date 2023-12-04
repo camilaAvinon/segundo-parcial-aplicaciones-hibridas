@@ -21,7 +21,7 @@ exports.auth = async (req, res) => {
             res.status(401).json({ msg: 'Credenciales invalidas.' });
         }
         // Generando JWT
-        const token = jwt.sign({ userId: user._id}, key, { expiresIn: '2h' });
+        const token = jwt.sign({ userId: user._id, roleId: user.role}, key, { expiresIn: '2h' });
         res.status(201).json({ 
             msg: 'Usuario autenticado.', 
             token

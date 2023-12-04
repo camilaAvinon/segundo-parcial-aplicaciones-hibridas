@@ -19,7 +19,7 @@ exports.create = async(req, res) => {
         const newPost = new postModel({
             title: title,
             body: body,
-            userd: userId,
+            userId: userId,
             categoryId: categoryId
         });
         // Creando del posteo
