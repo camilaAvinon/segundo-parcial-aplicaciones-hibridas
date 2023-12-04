@@ -1,6 +1,8 @@
 import React from 'react'
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import styles from '../style';
+import { Link } from 'react-router-dom';
+
 
 const Nav = () => {
   return (
@@ -33,10 +35,11 @@ const Nav = () => {
         <Navbar.Link href="#"  className='text-xl text-tertiary'>
           Home
         </Navbar.Link>
-        <Navbar.Link href="#" className='text-xl text-tertiary'>About</Navbar.Link>
-        <Navbar.Link href="login" className='text-xl text-tertiary'>Iniciar sesión</Navbar.Link>
+        <Link to={`/login`} className='text-xl text-tertiary'>Iniciar sesión</Link>
+        {/* <Navbar.Link href="#" >About</Navbar.Link>
+        <Navbar.Link to="login" className='text-xl text-tertiary'>Iniciar sesión</Navbar.Link>
         <Navbar.Link href="#" className='text-xl text-tertiary'>Pricing</Navbar.Link>
-        <Navbar.Link href="#" className='text-xl text-tertiary'>Contact</Navbar.Link>
+        <Navbar.Link href="#" className='text-xl text-tertiary'>Contact</Navbar.Link> */}
       </Navbar.Collapse>
     </Navbar>
   );
