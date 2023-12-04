@@ -1,6 +1,8 @@
 const express = require('express');
 const dataBase = require('./dataBase');
 const jwt = require('jsonwebtoken');
+const cors = require('cors')
+const bodyParser = require('body-parser');
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const commentController = require('./controllers/commentController');
@@ -8,6 +10,15 @@ const categoryController = require('./controllers/categoryController');
 const app = express();
 const port = 2026;
 const key =  "blog";
+
+app.use(bodyParser.json());
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    }),
+);
+
+app.use(cors());
 
 app.use(express.json());
 

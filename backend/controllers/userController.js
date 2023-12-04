@@ -8,7 +8,9 @@ const key =  "blog";
 exports.auth = async (req, res) => {
     try {
         const { email, password } = req.body;
-        if (!email || !password ){
+        console.log(email);
+        console.log(password);
+        if ( !email || !password ){
             res.status(400).json( { msg: 'Se enviaron campos vacios.' } );
         }
         const user = await userModel.findOne( {email} );
