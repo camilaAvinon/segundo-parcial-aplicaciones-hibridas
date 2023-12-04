@@ -36,6 +36,7 @@ const Nav = () => {
           Home
         </Navbar.Link>
         <Link to={`/login`} className='text-xl text-tertiary'>Iniciar sesión</Link>
+        <Link to={`/signup`} className='text-xl text-tertiary'>Registrarme</Link>
         {/* <Navbar.Link href="#" >About</Navbar.Link>
         <Navbar.Link to="login" className='text-xl text-tertiary'>Iniciar sesión</Navbar.Link>
         <Navbar.Link href="#" className='text-xl text-tertiary'>Pricing</Navbar.Link>
