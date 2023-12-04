@@ -5,6 +5,7 @@ import View_login from './views/View_login.jsx'
 import View_signup from './views/View_signup.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { UserProvider } from './components/UserContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <UserProvider>
     <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 

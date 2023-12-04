@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Card_post, Component } from './components'
 import styles from './style'
+import { UserProvider } from './components/UserContext'
 const App = () => {
   return (
    <div className={`w-full overflow-hidden`}>

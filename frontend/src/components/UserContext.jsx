@@ -13,8 +13,12 @@ const UserProvider = ({children}) => {
         setUser(null)
     }
 
+    const contextValue = { user, login, logout }
+
+    console.log('Context Value:', contextValue)
+
     return (
-        <UserContext.Provider value={{user, login, logout}}>
+        <UserContext.Provider value={contextValue}>
             {children}
         </UserContext.Provider>
     )
@@ -24,4 +28,4 @@ const useUserContext = () => {
     return useContext(UserContext)
 }
 
-export {UserProvider, useUserContext}
+export { UserProvider, useUserContext }

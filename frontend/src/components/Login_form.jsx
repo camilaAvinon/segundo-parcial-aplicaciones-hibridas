@@ -18,7 +18,8 @@ const Login_form = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({email, password})
-      });
+      })
+
       const data = await response.json();
       console.log('Data; ', data);
       const token = data.token
@@ -26,7 +27,7 @@ const Login_form = () => {
       localStorage.setItem("token", token)
       localStorage.setItem("userName", userName)
       login({userNanme : userName})
-      //navigate('/panel)
+    //   //navigate('/panel)
     } catch(e){
       console.error(e);
     }
