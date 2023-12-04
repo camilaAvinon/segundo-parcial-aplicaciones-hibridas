@@ -12,13 +12,9 @@ const UserProvider = ({children}) => {
     const logout = () => {
         setUser(null)
     }
-
-    const contextValue = { user, login, logout }
-
-    console.log('Context Value:', contextValue)
-
+    
     return (
-        <UserContext.Provider value={contextValue}>
+        <UserContext.Provider value={{user, login, logout}}>
             {children}
         </UserContext.Provider>
     )

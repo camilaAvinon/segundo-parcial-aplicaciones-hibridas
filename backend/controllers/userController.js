@@ -8,18 +8,23 @@ const key =  "blog";
 exports.auth = async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(email);
-        console.log(password);
+        
         if ( !email || !password ){
-            res.status(400).json( { msg: 'Se enviaron campos vacios.' } );
+            console.log('Email ', email);
+            console.log('Contraseña ', password);
+            console.log('campos vacios')
+            // res.status(400).json( { msg: 'Se enviaron campos vacios.' } );
         }
         const user = await userModel.findOne( {email} );
         if ( !user ){
-            res.status(401).json({ msg: 'El usuario ingresado no coincide con nuestros registros.' });
+            console.log('el usuario no coincide')
+
+            // res.status(401).json({ msg: 'El usuario ingresado no coincide con nuestros registros.' });
         }
         // Validando la contraseña
         const validPassword = await bcrypt.compare( password, user.password );
         if ( !validPassword ){
+            console.log('contraseña incorrecta')
             res.status(401).json({ msg: 'Credenciales invalidas.' });
         }
         // Generando JWT

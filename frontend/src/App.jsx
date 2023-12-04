@@ -4,7 +4,8 @@ import styles from './style'
 import { UserProvider } from './components/UserContext'
 const App = () => {
   return (
-   <div className={`w-full overflow-hidden`}>
+    <UserProvider>
+    <div className={`w-full overflow-hidden`}>
     <div className={` bg-primary ${styles.boxWidth}`}>
       <Nav />
     </div>
@@ -20,10 +21,11 @@ const App = () => {
         <Card_post />
         <Card_post />
 
-      </div>
+        </div>
         <Component />
+      </div>
     </div>
-   </div>
+  </UserProvider>
   )
 }
 

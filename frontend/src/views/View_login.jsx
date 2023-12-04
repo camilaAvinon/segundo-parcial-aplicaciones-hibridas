@@ -3,7 +3,6 @@ import { Login_form, Nav } from "../components"
 import styles from "../style"
 
 const View_login = () => {
-
     return (
         <div className={`w-full overflow-hidden`}>
             <div className={` bg-primary ${styles.boxWidth}`}>
