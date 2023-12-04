@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, Card_post, Card_banner } from './components'
+import { Nav, Card_post, Component } from './components'
 import styles from './style'
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Card_post />
 
       </div>
-        <Card_banner />
+        <Component />
     </div>
    </div>
   )
