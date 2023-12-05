@@ -8,8 +8,10 @@ const View_login = () => {
             <div className={` bg-primary ${styles.boxWidth}`}>
                 <Nav/>
             </div>
-            <h1>Iniciá sesión</h1>
-            <Login_form/>
+            <div className="w-full mt-[2em]">
+                <h2 className="text-4xl text-center m-2 p-3">Iniciá sesión</h2>
+                <Login_form/>
+            </div>
         </div>
     )
 }

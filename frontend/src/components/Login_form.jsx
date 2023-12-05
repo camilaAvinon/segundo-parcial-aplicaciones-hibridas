@@ -33,7 +33,8 @@ const Login_form = () => {
   }
 
   return (    
-    <form className="flex max-w-md flex-col gap-4">
+    <div className=' flex flex-col justify-center items-center'>  
+    <form className="flex max-w-md flex-col gap-4 w-full justify-center">
     <div>
       <div className="mb-2 block">
         <Label  htmlFor="email" value='Correo electrónico'/>
@@ -48,6 +49,7 @@ const Login_form = () => {
     </div>
     <Button onClick={handlerSubmit} type="submit">Submit</Button>
   </form>
+    </div>
 );
 }
 

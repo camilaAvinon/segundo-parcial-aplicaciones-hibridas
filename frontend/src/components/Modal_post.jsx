@@ -84,7 +84,7 @@ function Modal_post() {
               <div className="mb-2 block">
                 <Label htmlFor="body" value="Cuerpo del posteo" />
               </div>
-              <Select defaultValue="global">
+              <Select>
                 {
                   categories.map((currentCategory) => (
                     <option key={currentCategory._id} value={currentCategory._id}>{currentCategory.name}</option>

@@ -22,7 +22,8 @@ const Signup_form = () => {
     }
 
     return (
-    <form className="flex max-w-md flex-col gap-4">
+    <div className=" flex flex-col justify-center items-center">
+    <form className="flex max-w-md flex-col gap-4 justify-center w-full">
         <div>
             <div className="mb-2 block">
                 <Label htmlFor="name" value="Nombre"/>
@@ -43,6 +44,7 @@ const Signup_form = () => {
         </div>
         <Button onClick={handlerSubmit} type="submit">Registrarme</Button>
     </form>
+    </div>
     )
 }
 

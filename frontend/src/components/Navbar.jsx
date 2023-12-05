@@ -32,9 +32,7 @@ const Nav = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#"  className='text-xl text-tertiary'>
-          Home
-        </Navbar.Link>
+        <Link to={`/home`}  className='text-xl text-tertiary'>Home</Link>
         <Link to={`/login`} className='text-xl text-tertiary'>Iniciar sesión</Link>
         <Link to={`/signup`} className='text-xl text-tertiary'>Registrarme</Link>
         {/* <Navbar.Link href="#" >About</Navbar.Link>
