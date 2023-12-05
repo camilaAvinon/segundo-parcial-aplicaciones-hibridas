@@ -21,7 +21,7 @@ function Modal_post() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({title, body, category, userId, })
+        body: JSON.stringify({title, body, category, userId, token})
       })
       if (response.ok){
         const data = await response.json();
