@@ -2,14 +2,18 @@
 
 import { Button, Checkbox, Label, Modal, TextInput, Select, Textarea } from 'flowbite-react';
 import React, { useRef, useState, useEffect} from 'react';
+import { useUserContext } from './UserContext';
 
 function Component() {
   const [openModal, setOpenModal] = useState(false)
   const [categories, setCategories] = useState(null)
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
-  const [category, serCategory] = useState()
+  const [category, setCategory] = useState()
 
+  let userId = localStorage.getItem('userId')
+  console.log(userId)
+  let token = localStorage.getItem('token')
   const handlerSubmit = async () => {
     try {
       const response = await fetch("http://localhost:2026/blog/posts", {
@@ -17,7 +21,7 @@ function Component() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({title, body, category})
+        body: JSON.stringify({title, body, category, userId, token})
       })
       if (response.ok){
         const data = await response.json();

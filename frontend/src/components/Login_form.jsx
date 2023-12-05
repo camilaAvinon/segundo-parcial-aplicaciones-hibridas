@@ -9,7 +9,8 @@ const Login_form = () => {
   const { login } = useUserContext()
   //const navigate = useNavigate()
 
-  const  handlerSubmit = async () => {
+  const  handlerSubmit = async (event) => {
+    event.preventDefault()
     try {
       const response = await fetch("http://localhost:2026/blog/authentication", {
         method: "POST",
@@ -19,12 +20,14 @@ const Login_form = () => {
         body: JSON.stringify({email, password})
       })
       if (response.ok){
+        console.log('entré')
         const data = await response.json();
         const token = data.token
-        const userName = data.name
+        const userId = data.userId
+        console.log(data)
         localStorage.setItem("token", token)
-        localStorage.setItem("userName", userName)
-        login({userNanme : userName})
+        localStorage.setItem("userId", userId)
+        login({userId : userId})
         //navigate('/panel)        
       }
     } catch(e){

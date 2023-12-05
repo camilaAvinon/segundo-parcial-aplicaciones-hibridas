@@ -16,6 +16,7 @@ exports.auth = async (req, res) => {
             // res.status(400).json( { msg: 'Se enviaron campos vacios.' } );
         }
         const user = await userModel.findOne( {email} );
+        const userId = user._id;
         if ( !user ){
             console.log('el usuario no coincide')
 
@@ -31,7 +32,8 @@ exports.auth = async (req, res) => {
         const token = jwt.sign({ userId: user._id, roleId: user.role}, key, { expiresIn: '2h' });
         res.status(201).json({ 
             msg: 'Usuario autenticado.', 
-            token
+            token,
+            userId
         });
     } catch (e) {
         console.log(e);
