@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import View_login from './views/View_login.jsx'
 import View_signup from './views/View_signup.jsx'
+import View_posts_create from './views/View_posts_create.jsx'
+import View_posts_update from './views/View_posts_update.jsx'
+import View_posts_delete from './views/View_posts_delete.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { UserProvider } from './components/UserContext.jsx'
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <View_signup/>
+  },
+  {
+    path: '/create_post',
+    element: <View_posts_create/>
+  },
+  {
+    path: '/update_post',
+    element: <View_posts_update/>
+  },
+  {
+    path: '/delete_post',
+    element: <View_posts_delete/>
   }
 ]);
 

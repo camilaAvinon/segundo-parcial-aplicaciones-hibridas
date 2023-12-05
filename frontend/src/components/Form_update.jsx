@@ -1,10 +1,8 @@
-'use client';
 
-import { Button, Checkbox, Label, Modal, TextInput, Select, Textarea } from 'flowbite-react';
-import React, { useRef, useState, useEffect} from 'react';
+import { Button, Label, TextInput, Select, Textarea } from 'flowbite-react';
+import React, { useState, useEffect} from 'react';
 
-function Component() {
-  const [openModal, setOpenModal] = useState(false)
+const Form_update = () => {
   const [categories, setCategories] = useState(null)
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
@@ -13,7 +11,7 @@ function Component() {
   const handlerSubmit = async () => {
     try {
       const response = await fetch("http://localhost:2026/blog/posts", {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -58,18 +56,9 @@ function Component() {
   
   return (
     <>
-      <Button onClick={() => setOpenModal(true)} className="fixed bottom-0 left-[96%] transform -translate-x-1/2 m-2 p-2  rounded-full">
-        <svg className="w-6 h-6 text-tertiary dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"  viewBox="0 0 18 18">
-        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 1v16M1 9h16"/>
-        </svg>
-      </Button>
-      <Modal show={openModal} size="lg" popup onClose={() => setOpenModal(false)}>
-        <Modal.Header />
-        <Modal.Body>
-
           <div className="space-y-6">
             <form action="">
-              <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Crear nuevo posteo</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white">Editar posteo</h3>
               <div>
                 <div className="mb-2 block">
                   <Label htmlFor="title" value="Título" />
@@ -92,17 +81,15 @@ function Component() {
                       <option key={currentCategory._id} value={currentCategory._id}>{currentCategory.name}</option>
                     ))
                   }
-                </Select>
+            </Select>
               </div>
               <div className="w-full">
                 <Button onClick={handlerSubmit} type='submit'>Crear posteo</Button>
               </div>
             </form>
           </div>
-        </Modal.Body>
-      </Modal> 
     </>
   );
 }
 
-export default Component
+export default Form_update

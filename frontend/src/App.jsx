@@ -15,12 +15,6 @@ const App = () => {
       </div>
       <div className={`${styles.paddingX} flex flex-wrap justify-evenly`}>
         <Card_post />
-        <Card_post />
-        <Card_post />
-        <Card_post />
-        <Card_post />
-        <Card_post />
-
         </div>
         <Component />
       </div>
