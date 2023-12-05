@@ -4,7 +4,7 @@ import { Button, Checkbox, Label, Modal, TextInput, Select, Textarea } from 'flo
 import React, { useRef, useState, useEffect} from 'react';
 import { useUserContext } from './UserContext';
 
-function Modal_post() {
+function Component() {
   const [openModal, setOpenModal] = useState(false)
   const [categories, setCategories] = useState(null)
   const [title, setTitle] = useState()
@@ -106,4 +106,4 @@ function Modal_post() {
   );
 }
 
-export default Modal_post
+export default Component
